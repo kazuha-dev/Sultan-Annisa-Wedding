@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,800&display=swap');
+
+/* default style */
+body {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+:before,:after {
+    box-sizing: border-box;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+}
+
+header,
+section {
+    display: block;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.header .logo {
+    padding: 0 15px;
+}
+.header .logo a {
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Great Vibes", cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.align-items-center {
+    align-items: center;
+}
+
+/* home section */
+.home-section {
+    min-height: 100vh;
+    position: relative;
+}
+
+.home-section .slide {
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+}
+.home-section .slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.home-section .slide:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0,0.5);
+    z-index: -1;
+}
+
+.home-section .row {
+    min-height: 100vh;
+}
+
+.home-section .home-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+    text-align: center;
+}
+.home-section .slide.active .home-content p {
+    opacity: 0;
+    animation: fadeInTop 1s ease forwards;
+}
+@keyframes fadeInTop {
+    0% {
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.home-section .home-content p {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 0 15px;
+    align-items: justify;
+}
+.home-section .home-content h1 {
+    font-size: 84px;
+    color: #ffffff;
+    margin: 0;
+    font-weight: normal;
+    font-family: "Great Vibes", cursive;
+}
+.home-section .slide.active .home-content h1 {
+    opacity: 0;
+    animation: fadeInTop 1s ease forwards;
+    animation-delay: 0.5s;
+}
+.home-section .home-content a {
+    font-size: 20px;
+    display: inline-block;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 7px 30px;
+    margin: 5px;
+}
+.home-section .slide.active .home-content a {
+    opacity: 0;
+    animation: fadeInTop 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.button a:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    padding: 7px 30px;
+    margin: 5px;
+}
+
+.video-container.show-video {
+    display: flex;
+}
+
+.video-box {
+    position: relative;
+    width: 87%;
+}
+
+.video-box #myvideo {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.close-video {
+    position: absolute;
+    font-weight: bold;
+    top: 4px;
+    right: 7px;
+    color: #ffffff;
+    
+}
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: hsl(234 10% 20% / 60%);
+    z-index: 400;
+}
+
+@media(max-width:767px) {
+
+ .video-box #myvideo {
+    width: 100%;
+    aspect-ratio: 9/16;
+ }
+ .video-box {
+    position: relative;
+    width: 90%;
+ }
+ .home-section .home-content p {
+    font-size: 17px;
+ }
+ .home-section .home-content h1 {
+    font-size: 65px;
+ }
+}
